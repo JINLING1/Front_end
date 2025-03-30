@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="Website" />
+  <meta name="description" content="Basic_HTML_Website" />
+  <meta name="author" content="JINLING1" />
+
+  <title>Basic_HTML_Website</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">JINLING1</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+    <main>
+    <section class="contact">
+        <h1>Contact Me</h1>
+        <form action="submit_form.php" method="post">
+            <label for="name">Name:</label><br />
+            <input type="text" id="name" name="name" required><br />
+            <label for="email">Email:</label><br />
+            <input type="email" id="email" name="email" required><br />
+            <label for="message">Message:</label><br />
+            <textarea id="message" name="message" rows="5" required></textarea><br />
+            <button type="submit">Send Message</button>
+        </form>
+    </section> 
+    </main>
+
+    <footer>
+      <p>&copy; All rights reserved 2025</p>
+    </footer>
+  </body>
+</html>
