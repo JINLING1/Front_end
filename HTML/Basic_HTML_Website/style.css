@@ -154,3 +154,17 @@ input,textarea{
     color: rgb(255, 255, 255);
     text-align: justify;
 }
+.contact{
+    width:80%;
+}
+#submit{
+    background-color: rgba(86, 86, 86, 0.692);
+    border-radius: 5px;
+    border: 2px solid rgb(152, 161, 150);
+    padding: 5px;
+    margin: 10px 10px;
+    color: aliceblue;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    width: 30%;
+}
