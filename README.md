@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/c00eace5-1fe7-4d49-a1bb-c1c81238449f)# This repository contains the projects provided by the front-end learning roadmap of roadmap.sh.  
+# This repository contains the projects provided by the front-end learning roadmap of roadmap.sh.  
 
 ## 1.[Single Page CV](https://github.com/JINLING1/Front_end/tree/main/HTML)
 ![image](https://github.com/user-attachments/assets/969bd368-1322-4e1d-9db6-bf9047e8298e)
