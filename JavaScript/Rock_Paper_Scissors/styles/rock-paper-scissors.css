@@ -30,10 +30,12 @@ body{
 .score{
     margin-top:60px;
 }
-.reset-score-button{
+.reset-score-button,
+.auto-play-button{
     background-color: white;
     border:none;
     font-size:15px;
     padding:8px 15px;
     cursor:pointer;
 }
+

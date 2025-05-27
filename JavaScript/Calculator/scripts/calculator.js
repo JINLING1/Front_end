@@ -28,7 +28,7 @@ function clearCalculation() {
 function getResult() {
   try {
     // calculation = eval(calculation);
-    calculation = Function('"use strict";return (' + calculation + ")")();
+    calculation = Function('"use strict";return (' + calculation + ")")().toString();
     //相当于
     /*
     function func(){
