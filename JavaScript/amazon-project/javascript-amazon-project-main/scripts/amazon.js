@@ -47,11 +47,36 @@ productsHTML += `<div class="product-container">
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary">
+          <button class="add-to-cart-button button-primary js-add-to-cart" data-product-name="${product.id}">
             Add to Cart
           </button>
         </div>`;  
 });
 
 //put the HTML into the page
-document.querySelector('.js-products-grid').innerHTML = productsHTML
+document.querySelector('.js-products-grid').innerHTML = productsHTML;
+
+//商品名字可能重合但来自不同品牌，因此使用Id作为标识
+document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
+  button.addEventListener('click',()=>{
+    //kebab case => camo case
+    const productId = button.dataset.productId;
+    //check if the product is already in the cart
+    let matchingItem;
+    cart.forEach((item)=>{
+      if (productId === item.productId){
+        matchingItem = item;
+      }
+    });
+    if (matchingItem){
+      matchingItem.quantity++;
+    }else{
+      cart.push({
+        productId,
+        quantity:1
+      });
+    }
+    
+    console.log(cart);
+  });
+});
