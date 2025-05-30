@@ -1,11 +1,11 @@
-import {cart} from '../data/cart.js';
-import {products} from '../data/products.js';
+import { cart,addToCart } from "../data/cart.js";
+import { products } from "../data/products.js";
 //get the data from product.js
 //create the HTML
-let productsHTML = '';
+let productsHTML = "";
 
 products.forEach((product) => {
-productsHTML += `<div class="product-container">
+  productsHTML += `<div class="product-container">
           <div class="product-image-container">
             <img class="product-image"
               src="${product.image}">
@@ -17,7 +17,7 @@ productsHTML += `<div class="product-container">
 
           <div class="product-rating-container">
             <img class="product-rating-stars"
-              src="images/ratings/rating-${product.rating.stars*10}.png">
+              src="images/ratings/rating-${product.rating.stars * 10}.png">
             <div class="product-rating-count link-primary">
               ${product.rating.count}
             </div>
@@ -49,39 +49,30 @@ productsHTML += `<div class="product-container">
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary js-add-to-cart" data-product-name="${product.id}">
+          <button class="add-to-cart-button button-primary js-add-to-cart" data-product-name="${
+            product.id
+          }">
             Add to Cart
           </button>
-        </div>`;  
+        </div>`;
 });
 
 //put the HTML into the page
-document.querySelector('.js-products-grid').innerHTML = productsHTML;
+document.querySelector(".js-products-grid").innerHTML = productsHTML;
 
+function updateCartQuantity() {
+  let cartQuantity = 0;
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
+  document.querySelector(".js-cart-quantity").innerHTML = cartQuantity;
+}
 //商品名字可能重合但来自不同品牌，因此使用Id作为标识
-document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
-  button.addEventListener('click',()=>{
+document.querySelectorAll(".js-add-to-cart").forEach((button) => {
+  button.addEventListener("click", () => {
     //kebab case => camo case
     const productId = button.dataset.productId;
-    //check if the product is already in the cart
-    let matchingItem;
-    cart.forEach((item)=>{
-      if (productId === item.productId){
-        matchingItem = item;
-      }
-    });
-    if (matchingItem){
-      matchingItem.quantity++;
-    }else{
-      cart.push({
-        productId,
-        quantity:1
-      });
-    }
-    let cartQuantity = 0;
-    cart.forEach((item)=>{
-      cartQuantity += item.quantity;
-    });
-    document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+    addToCart(productId);
+    updateCartQuantity();
   });
 });
