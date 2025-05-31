@@ -1,12 +1,20 @@
 //购物车数据
-export let cart = [{
-    productId:"e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
-    quantity:2
-},{
-    productId: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
-    quantity:1
-}];
-
+export let cart = JSON.parse(localStorage.getItem("cart"));
+if (!cart) {//if cart is null 
+  cart = [
+    {
+      productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+      quantity: 2,
+    },
+    {
+      productId: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
+      quantity: 1,
+    },
+  ];
+}
+function saveToStorage() {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
 export function addToCart(productId) {
   let matchingItem;
   cart.forEach((cartItem) => {
@@ -16,22 +24,25 @@ export function addToCart(productId) {
   });
   if (matchingItem) {
     matchingItem.quantity++;
-  } else { 
+  } else {
     cart.push({
       productId,
       quantity: 1,
     });
   }
+  saveToStorage();
 }
 
 //delete function
-export function removeFromCart(productId){
+export function removeFromCart(productId) {
   const newCart = [];
-  cart.forEach((cartItem)=>{
-    if(cartItem.productId !== productId){
+  cart.forEach((cartItem) => {
+    if (cartItem.productId !== productId) {
       newCart.push(cartItem);
     }
   });
 
-  cart =newCart;
-};
+  cart = newCart;
+
+  saveToStorage();
+}
