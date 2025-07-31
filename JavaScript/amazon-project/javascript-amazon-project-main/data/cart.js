@@ -1,4 +1,4 @@
-//购物车数据
+ //购物车数据
 export let cart;
 
 loadFromStorage();
