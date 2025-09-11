@@ -72,6 +72,7 @@ function renderProjectsGrid(){
     });
     document.querySelector(".js-cart-quantity").innerHTML = cartQuantity;
   }
+  updateCartQuantity();
   //商品名字可能重合但来自不同品牌，因此使用Id作为标识
   document.querySelectorAll(".js-add-to-cart").forEach((button) => {
     button.addEventListener("click", () => {
